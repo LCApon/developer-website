@@ -12,24 +12,64 @@
         padding: 0;
         box-sizing: border-box;
       }
+    </style>
 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Personal style -->
+    <style>
       :root {
-        --primary: #4A148C;
+        --primary: #613080;
+        --primary-light: #b48bce;
         --secondary: #f0f4ff;
-        --subhead-text: #666;
+        --tertiary: #333333;
+        --subhead-text: #666666;
       }
 
       body {
-        font-family: 'Open Sans', sans-serif;
         background-color: var(--secondary);
-        color: #333;
+        color: var(--tertiary);
+      }
+
+      .navbar {
+        /* border-radius: .5rem; */ /* soft corners */
+        /* background: var(--primary); */
+        /* background-image: var(--bs-gradient); */
+        border-bottom-width: 2px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px;
+        border-color: var(--primary);
+        border-style: solid;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        opacity: 1;
+      }
+
+      /* Links */
+      .nav-link {
+        color: var(--tertiary);
+        font-weight: bold;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Hover effects */
+      .nav-link:hover,
+      .nav-item.active .nav-link {
+        background-color: var(--primary);
+        color: var(--secondary);
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
 
       .hero-section {
-        background: linear-gradient(135deg, #ffffff, var(--secondary));
+        background: linear-gradient(180deg, #ffffff, var(--secondary));
         padding: 8rem 2rem;
         border-radius: 20px;
         margin-bottom: 4rem;
+        margin-top: 1rem;
       }
 
       .hero-section h1 {
@@ -48,9 +88,11 @@
       .hero-section img {
         width: 100%;
         max-width: 300px;
-        border-radius: 50%;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 300px 300px 10px 10px;
         transition: transform 0.3s ease;
+        border-color: var(--tertiary);
+        border-width: 2px;
+        border-style: solid;
       }
 
       .hero-section img:hover {
@@ -58,56 +100,69 @@
       }
     </style>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
   </head>
   <body>
     <!-- Header + Navigation -->
-    <header class="navbar">
+    <header class="navbar navbar-expand-lg py-3">
       <div class="container-fluid">
-        <nav class="d-flex justify-content-between align-items-center">
-          <a href="#" class="brand">Luc Apon</a>
-          <ul class="nav-links d-flex gap-3">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About me</a></li>
-            <li><a href="#projects">Projects</a></li>
+        <!-- Optional 'brand' header -->
+        <!-- <a href="#" class="brand text-center me-3">Luc Apon</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="nav nav-pills gap-3">
+            <!-- Links -->
+            <li class="nav-item">
+              <a href="#home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About me</a>
+            </li>
+            <li class="nav-item">
+              <a href="#projects" class="nav-link">Projects</a>
+            </li>
           </ul>
-        </nav>
+        </div>
       </div>
     </header>
 
-    <!-- Banner page -->
-    <main class="container-fluid">
-      <!-- SECTION 1: Introduction -->
-      <section id="home" class="hero-section">
-        <div class="row align-items-center">
-          <div class="col-md-8 text-center text-md-start">
-            <h1>Hello, I’m Luc Apon</h1>
-            <p class="lead">Subheading | Some more subheading</p>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <!-- Banner page -->
+      <main class="container-fluid">
+        <!-- SECTION 1: Introduction -->
+        <section id="home" class="hero-section">
+          <div class="row align-items-center">
+            <div class="col-md-8 text-center text-md-start">
+              <h1>Luc Apon</h1>
+              <p class="lead">Data Scientist | Product Owner</p>
+            </div>
+            <div class="col-md-4 text-center text-md-start">
+              <!-- Photo -->
+              <img src="assets/img/profile.png" alt="Profile photo" class="img-fluid shadow-sm"/>
+            </div>
           </div>
-          <div class="col-md-4 text-center text-md-start">
-            <!-- Photo -->
-            <img src="assets/img/profile.png" alt="Profile photo" class="img-fluid rounded-circle shadow-sm"/>
-          </div>
+        </section>
+
+        <!-- SECTION 2: About me -->
+        <section id="about" class="about-section">
+          <h2>About Me</h2>
+        </section>
+
+        <!-- SECTION 3: Projects -->
+        <section id="projects" class="projects-section">
+          <h2>My Work</h2>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <p>By Luc Apon</p>
         </div>
-      </section>
+      </footer>
 
-      <!-- SECTION 2: About me -->
-      <section id="about" class="about-section">
-        <h2>About Me</h2>
-      </section>
-
-      <!-- SECTION 3: Projects -->
-      <section id="projects" class="projects-section">
-        <h2>My Work</h2>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-dark text-white py-3 mt-auto">
-      <div class="container-fluid d-flex justify-content-between align-items-center">
-        <p>By Luc Apon</p>
-      </div>
-    </footer>
-
+    </div>
   </body>
 </html>
